@@ -1,7 +1,7 @@
 #include "include/cli.hpp"
 
 CLI::CLI(): uart(UART(UART_PORT_0)), invoker(Invoker()){
-    // Aqui tengo que llamar a invoker.register_command() para que se pueda utilizar
+    invoker.register_command("test-cli", std::make_unique<TestCliCommand>(&uart));
 }
 
 void CLI::receive_command(){

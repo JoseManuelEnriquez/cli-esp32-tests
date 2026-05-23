@@ -1,6 +1,6 @@
 #include "include/test.hpp"
 
-void TestCliCommand::execute(std::string_view parameters) override{
+void TestCliCommand::execute(std::string_view parameters){
     if (uart == nullptr) return;
 
     const char* text_test = "\n>>> CORRIENDO: TEST_CLI <<<\n";

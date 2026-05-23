@@ -3,6 +3,7 @@
 #include "invoker.hpp"
 #include "command.hpp"
 #include "uart.hpp"
+#include "test.hpp"
 
 class CLI{
     public:
