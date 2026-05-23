@@ -1,3 +1,3 @@
 #include "include/command.hpp"
 
-Command::Command(Callback _callback): callback(_callback){}
+Command::Command(UART* uart_ptr): uart(uart_ptr){}

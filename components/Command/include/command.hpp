@@ -1,15 +1,14 @@
 #ifndef COMMAND_HPP
 #define COMMAND_HPP
 #include <string_view>
-
-using Callback = void(*)();
+#include "uart.hpp"
 
 class Command{
     public:
-        Command(Callback _callback);
+        Command(UART* uart_ptr);
         virtual void execute(std::string_view parameters) = 0;
-    private:
-        Callback callback;
+    protected:
+        UART* uart;
 };
 
 #endif
