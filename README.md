@@ -25,7 +25,7 @@ components/
 ```
 UART (recepción serie)
     └─> CLI::receive_command()
-            └─> parser (pendiente de implementar)
+            └─> parser
                     └─> Invoker::process(nombre, parámetros)
                                 └─> Command::execute(parámetros)
 ```
