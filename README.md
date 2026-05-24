@@ -25,7 +25,7 @@ components/
 ```
 UART (recepción serie)
     └─> CLI::receive_command()
-            └─> parser (pendiente de implementar)
+            └─> parser
                     └─> Invoker::process(nombre, parámetros)
                                 └─> Command::execute(parámetros)
 ```
@@ -133,11 +133,7 @@ invoker.register_command("mi-comando", std::make_unique<MiComando>(&uart));
 - [x] ✅ Abstracción UART
 - [x] ✅ Patrón Command + Invoker
 - [x] ✅ Comando de prueba `test-cli`
-- [ ] 🔧 Parser de entrada (nombre + parámetros) — **pendiente**
+- [x] 🔧 Parser de entrada (nombre + parámetros) — **pendiente**
 - [ ] 🔧 Gestión de errores / comandos no reconocidos
 
 ---
-
-## 📄 Licencia
-
-Sin licencia especificada. Uso libre para propósitos educativos y de prototipado.
