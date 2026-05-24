@@ -25,7 +25,24 @@ UART::UART(uart_port_t port, int baud_rate, uint32_t rx_pin, uint32_t tx_pin):
 }
 
 uint32_t UART::receive(uint8_t* buffer, uint32_t length){
-    return uart_read_bytes(uart_port, buffer, length-1, portMAX_DELAY);
+    uint8_t temp[32];
+    size_t pos = std::string::npos;
+    std::string internal_buffer;
+
+    while(pos == std::string::npos){
+        int rx_bytes = uart_read_bytes(uart_port, temp, sizeof(temp) - 1, pdMS_TO_TICKS(100));
+        if (rx_bytes > 0) {
+            internal_buffer.append(reinterpret_cast<const char*>(temp), rx_bytes);
+            pos = internal_buffer.find_first_of("\r\n");
+        }
+    }
+
+    uint32_t bytes_to_copy = (pos < length - 1) ? pos : length - 1;
+    std::memcpy(buffer, internal_buffer.data(), bytes_to_copy);
+    buffer[bytes_to_copy] = '\0';
+    internal_buffer.erase(0, pos + 1);
+    
+    return bytes_to_copy;
 }
 
 void UART::send(const char* data, int len){

@@ -1,6 +1,8 @@
 #ifndef UART_HPP
 #define UART_HPP
 #include "driver/uart.h"
+#include <string>
+#include <cstring> // memcpy
 
 #define UART_PORT_0 UART_NUM_0
 #define UART_PORT_1 UART_NUM_1
