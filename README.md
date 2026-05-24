@@ -133,7 +133,7 @@ invoker.register_command("mi-comando", std::make_unique<MiComando>(&uart));
 - [x] ✅ Abstracción UART
 - [x] ✅ Patrón Command + Invoker
 - [x] ✅ Comando de prueba `test-cli`
-- [ ] 🔧 Parser de entrada (nombre + parámetros) — **pendiente**
+- [x] 🔧 Parser de entrada (nombre + parámetros) — **pendiente**
 - [ ] 🔧 Gestión de errores / comandos no reconocidos
 
 ---
