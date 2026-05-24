@@ -137,7 +137,3 @@ invoker.register_command("mi-comando", std::make_unique<MiComando>(&uart));
 - [ ] 🔧 Gestión de errores / comandos no reconocidos
 
 ---
-
-## 📄 Licencia
-
-Sin licencia especificada. Uso libre para propósitos educativos y de prototipado.
